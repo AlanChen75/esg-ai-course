@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>永續轉型×AI轉型 - 工業園區高階主管必修課程</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft JhengHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 導航區 */
+        .nav {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+
+        /* 主視覺區 */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 24px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .urgent-banner {
+            background: #FF5722;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 40px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .cta-primary {
+            background: #FFD700;
+            color: #333;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-primary:hover {
+            background: #FFC107;
+            transform: translateY(-2px);
+        }
+
+        /* 課程區塊 */
+        .courses {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #2c3e50;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .course-header {
+            padding: 30px;
+            color: white;
+            text-align: center;
+        }
+
+        .esg-course .course-header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+        }
+
+        .ai-course .course-header {
+            background: linear-gradient(135deg, #1565C0 0%, #2196F3 100%);
+        }
+
+        .course-title {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .course-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .course-info {
+            display: flex;
+            justify-content: space-between;
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .course-content {
+            padding: 30px;
+        }
+
+        .course-outline {
+            margin-bottom: 30px;
+        }
+
+        .course-outline h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .outline-item {
+            background: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+
+        .outline-item h5 {
+            color: #495057;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .outline-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .outline-item li {
+            margin-bottom: 5px;
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        .outline-item li::before {
+            content: "• ";
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .esg-course .outline-item {
+            border-left-color: #4CAF50;
+        }
+
+        .esg-course .outline-item li::before {
+            color: #4CAF50;
+        }
+
+        .ai-course .outline-item {
+            border-left-color: #2196F3;
+        }
+
+        .ai-course .outline-item li::before {
+            color: #2196F3;
+        }
+
+        /* 特色亮點 */
+        .highlights {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .highlight-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .highlight-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .highlight-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        /* 主辦單位 */
+        .organizers {
+            padding: 60px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .organizer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .organizer-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .organizer-title {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .organizer-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        /* 報名區 */
+        .registration {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .registration h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .registration-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .info-item {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .info-item h4 {
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero .subtitle {
+                font-size: 18px;
+            }
+            
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .organizer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 導航 -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">永續轉型 × AI轉型</div>
+                <div class="nav-links">
+                    <a href="#courses">課程內容</a>
+                    <a href="#highlights">課程特色</a>
+                    <a href="#organizers">主辦單位</a>
+                    <a href="#registration">立即報名</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主視覺 -->
+    <section class="hero">
+        <div class="container">
+            <div class="urgent-banner">🚨 2026年IFRS永續揭露準則上路！</div>
+            <h1>工業園區轉型雙引擎</h1>
+            <p class="subtitle">會用AI的員工，是企業最強的生產力</p>
+            <button class="cta-primary">立即報名 搶先轉型</button>
+        </div>
+    </section>
+
+    <!-- 課程內容 -->
+    <section class="courses" id="courses">
+        <div class="container">
+            <h2 class="section-title">兩日精華課程</h2>
+            <div class="course-grid">
+                <!-- ESG永續課程 -->
+                <div class="course-card esg-course">
+                    <div class="course-header">
+                        <h3 class="course-title">永續轉型實戰</h3>
+                        <p class="course-subtitle">從法規到實務的完整指南</p>
+                        <div class="course-info">
+                            <span>📅 第一天</span>
+                            <span>⏰ 7小時</span>
+                            <span>🎯 ESG實務</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-outline">
+                            <h4>📋 課程大綱</h4>
+                            <div class="outline-item">
+                                <h5>第一節：永續發展與企業ESG概論</h5>
+                                <ul>
+                                    <li>永續發展歷程與重要決議</li>
+                                    <li>極端氣候變遷治理與因應</li>
+                                </ul>
+                            </div>
+                            <div class="outline-item">
+                                <h5>第二節：淨零路徑規劃</h5>
+                                <ul>
+                                    <li>再生能源與能源效率</li>
+                                    <li>減碳與能源轉型策略</li>
+                                </ul>
+                            </div>
+                            <div class="outline-item">
+                                <h5>第三節：碳稅、碳權概論</h5>
+                                <ul>
+                                    <li>國際碳關稅及貿易政策</li>
+                                    <li>碳資產交易管理實例</li>
+                                </ul>
+                            </div>
+                            <div class="outline-item">
+                                <h5>第四節：碳盤查、碳足跡實務</h5>
+                                <ul>
+                                    <li>碳盤查標準與法規要求</li>
+                                    <li>碳足跡計算方法</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI課程 -->
+                <div class="course-card ai-course">
+                    <div class="course-header">
+                        <h3 class="course-title">AI轉型實戰</h3>
+                        <p class="course-subtitle">生成式AI的企業應用策略</p>
+                        <div class="course-info">
+                            <span>📅 第二天</span>
+                            <span>⏰ 7小時</span>
+                            <span>🎯 AI應用</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-outline">
+                            <h4>📋 課程大綱</h4>
+                            <div class="outline-item">
+                                <h5>第一節：生成式AI原理與技術基礎</h5>
+                                <ul>
+                                    <li>生成式AI基本原理架構</li>
+                                    <li>主流工具與發展趨勢</li>
+                                </ul>
+                            </div>
+                            <div class="outline-item">
+                                <h5>第二節：生成式AI應用場景</h5>
+                                <ul>
+                                    <li>Prompt技巧優化案例</li>
+                                    <li>日常工作流程拆解</li>
+                                </ul>
+                            </div>
+                            <div class="outline-item">
+                                <h5>第三節：AI創新思維工作坊</h5>
+                                <ul>
+                                    <li>AI法律、道德與隱私</li>
+                                    <li>協作時代四個應用練習</li>
+                                </ul>
+                            </div>
+                            <div class="outline-item">
+                                <h5>第四節：AI工具綜合應用</h5>
+                                <ul>
+                                    <li>組合應用四種層級</li>
+                                    <li>三力模型與應用練習</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 課程特色 -->
+    <section class="highlights" id="highlights">
+        <div class="container">
+            <h2 class="section-title">課程特色亮點</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <div class="highlight-icon">🏭</div>
+                    <h3 class="highlight-title">工業園區專屬</h3>
+                    <p>專為工業園區高階主管設計，結合製造業實務案例</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">📊</div>
+                    <h3 class="highlight-title">趨勢導向教學</h3>
+                    <p>聚焦永續法規與AI最新發展趨勢</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">💼</div>
+                    <h3 class="highlight-title">高階主管專班</h3>
+                    <p>小班制教學，深度交流與經驗分享</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">🎓</div>
+                    <h3 class="highlight-title">課程時數認證</h3>
+                    <p>結業可申請專業課程時數</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主辦執行單位 -->
+    <section class="organizers" id="organizers">
+        <div class="container">
+            <h2 class="section-title">主辦與執行單位</h2>
+            <div class="organizer-grid">
+                <div class="organizer-card">
+                    <h3 class="organizer-title">主辦單位</h3>
+                    <div class="organizer-name">國立高雄科技大學</div>
+                </div>
+                <div class="organizer-card">
+                    <h3 class="organizer-title">執行單位</h3>
+                    <div class="organizer-name">台灣智綠科技</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 報名資訊 -->
+    <section class="registration" id="registration">
+        <div class="container">
+            <h2>立即報名 搶先卡位</h2>
+            <div class="registration-info">
+                <div class="info-item">
+                    <h4>🎯 適合對象</h4>
+                    <p>工業園區高階主管<br>企業永續專員<br>技術部門主管</p>
+                </div>
+                <div class="info-item">
+                    <h4>📅 課程時間</h4>
+                    <p>兩日密集課程<br>每日7小時<br>共計14小時</p>
+                </div>
+                <div class="info-item">
+                    <h4>🏆 結業認證</h4>
+                    <p>課程結業證書<br>專業課程時數<br>持續教育認證</p>
+                </div>
+                <div class="info-item">
+                    <h4>📞 報名諮詢</h4>
+                    <p>台灣智綠科技<br>專業課程顧問<br>立即聯繫報名</p>
+                </div>
+            </div>
+            <button class="cta-primary">立即報名 搶先轉型</button>
+        </div>
+    </section>
+</body>
+</html>
